@@ -64,8 +64,8 @@
 }
 
   .solved-challenge {
-    color: #fafafa;
-    opacity: .8;
+    color: #B4BEFE;
+    
   }
   
 .challenge-button:hover {
@@ -79,12 +79,21 @@
 }
 
 .solved-challenge:hover {
-  color: #fff;  
-  background-image: radial-gradient(circle at 50% 180%, #49BF88, #00f2ff00 67%), linear-gradient(#8826f9 #49BF88);
+  color: #B4BEFE;  /* Mantém a cor do texto de acordo com o esquema */
+  background-image: radial-gradient(circle at 50% 180%, #8826F9, #11111B 67%), 
+                    linear-gradient(#8826F9, #B4BEFE);
   transition: box-shadow .375s, transform .375s cubic-bezier(.175, .885, .32, 1.275);
-  border: 1px solid #8826f9;
-  box-shadow: inset 0 -8px 32px #49BF88, inset 0 0 12px #ffffff14, 0 53px 15px #00f2ff03, 0 34px 14px #00f2ff0f, 0 19px 11px #00f2ff33, 0 8px 8px #00f2ff57, 0 2px 5px #00f2ff63; 
+  border: 1px solid #8826F9;
+  box-shadow: 
+    inset 0 -8px 32px #8826F9,
+    inset 0 0 12px #ffffff14,
+    0 53px 15px #11111B03,
+    0 34px 14px #11111B0f,
+    0 19px 11px #B4BEFE33,
+    0 8px 8px #B4BEFE57,
+    0 2px 5px #B4BEFE63;
 }
+
 
   .corner-button-check {
     margin-top: -10px;

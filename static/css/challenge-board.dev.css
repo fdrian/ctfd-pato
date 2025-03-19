@@ -30,14 +30,14 @@
 }
 
 .challenge-button {
-  background-color: #1b1b1b;
-  box-shadow: 3px 3px #1F1F21;
+  background-color: #11111B;
+  box-shadow: 3px 3px #11111B;
 }
 .challenge-button:hover {
-  background-color: #0EDCE6 !important;
+  background-color: #8839ef !important;
 }
 .solved-challenge {
-  background-color: #49BF88 !important;
+  background-color: #8826F9 !important;
   opacity: .9;
   border: none;
 }

@@ -34,7 +34,7 @@
     border-radius: 4px;
     background-color: #181820;
     border: 0 solid #181820;
-    color: #00f2ff;
+    color: --purple;
     font-weight: 400;    
     -webkit-appearance: none;
     height: 64px;

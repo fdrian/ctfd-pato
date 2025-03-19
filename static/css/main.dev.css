@@ -255,7 +255,7 @@ a {
   background-color: transparent;
 }
 a:hover {
-  color: #00f2ff;
+  color: --purple;
   text-decoration: underline;
 }
 a:not([href]):not([tabindex]),
@@ -1426,7 +1426,7 @@ pre code {
   text-transform: uppercase;
 }
 .table thead tr {
-  color: #00f2ff;   
+  color: --purple;   
   text-transform: uppercase;
 }
 .table tbody + tbody {
@@ -2168,7 +2168,7 @@ textarea.form-control.is-invalid {
   }
 }
 .btn:hover {
-  color: #00f2ff;
+  color: --purple;
   text-decoration: none;
 }
 .btn.focus,
@@ -2196,8 +2196,8 @@ fieldset:disabled a.btn {
 .btn-dark:hover,
 .btn-outline-hint:hover {
   color: #fff;
-  background-color: #00f2ff;
-  border-color: #00f2ff;
+  background-color: --purple;
+  border-color: --purple;
   box-shadow: 2px 2px #fafafa;
   
 }
@@ -2307,8 +2307,8 @@ fieldset:disabled a.btn {
 .btn-info:not(:disabled):not(.disabled):active,
 .show > .btn-info.dropdown-toggle {
   color: #fff;
-  background-color: #00f2ff;
-  border-color: #00f2ff;
+  background-color: --purple;
+  border-color: --purple;
 }
 .btn-info:not(:disabled):not(.disabled).active:focus,
 .btn-info:not(:disabled):not(.disabled):active:focus,
@@ -2443,8 +2443,8 @@ fieldset:disabled a.btn {
 .btn-outline-primary:hover,
 .btn-outline-secondary:hover {
   color: #fff;
-  background-color: #00f2ff;
-  border-color: #00f2ff;
+  background-color: --purple;
+  border-color: --purple;
   box-shadow: 2px 2px #fafafa;
 }
 .btn-outline-primary.focus,
@@ -2488,15 +2488,15 @@ fieldset:disabled a.btn {
 }
 .btn-outline-secondary.disabled,
 .btn-outline-secondary:disabled {
-  color: #00f2ff;
+  color: --purple;
   background-color: transparent;
 }
 .btn-outline-secondary:not(:disabled):not(.disabled).active,
 .btn-outline-secondary:not(:disabled):not(.disabled):active,
 .show > .btn-outline-secondary.dropdown-toggle {
   color: #fff;
-  background-color: #00f2ff;
-  border-color: #00f2ff;
+  background-color: --purple;
+  border-color: --purple;
 }
 .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
 .btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
@@ -2504,12 +2504,12 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
 .btn-outline-success {
-  color: #00f2ff;
-  border-color: #00f2ff;
+  color: --purple;
+  border-color: --purple;
 }
 .btn-outline-success:hover {
   color: #fff;
-  background-color: #00f2ff;
+  background-color: --purple;
   border-color: #2800f2ffa745;
 }
 .btn-outline-success.focus,
@@ -3979,7 +3979,7 @@ input[type="submit"].btn-block {
 }
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: #00f2ff;
+  color: --purple;
 }
 .navbar-dark .navbar-nav .nav-link.disabled {
   color: hsla(0, 0%, 100%, 0.25);
@@ -4921,7 +4921,7 @@ a.badge-dark:focus {
   opacity: 0.5;
 }
 .close:hover {
-  color: #00f2ff;
+  color: --purple;
   text-decoration: none;
 }
 .close:not(:disabled):not(.disabled):focus,
@@ -9544,7 +9544,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #00f2ff;
+  color: --purple;
   text-decoration: none;
 }
 table > thead > tr > td {
@@ -9574,7 +9574,7 @@ blockquote {
 }
 .form-control:focus,
 .input-filled-valid {
-  color: #00f2ff;    
+  color: --purple;    
   box-shadow: 0 0 0 0.1rem #0a090b;
   transition: background-color 0.3s, border-color 0.3s;
 }

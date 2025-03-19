@@ -85,14 +85,6 @@
                     linear-gradient(#8826F9, #B4BEFE);
   transition: box-shadow .375s, transform .375s cubic-bezier(.175, .885, .32, 1.275);
   border: 1px solid #8826F9;
-  box-shadow: 
-    inset 0 -8px 32px #8826F9,
-    inset 0 0 12px #ffffff14,
-    0 53px 15px #11111B03,
-    0 34px 14px #11111B0f,
-    0 19px 11px #B4BEFE33,
-    0 8px 8px #B4BEFE57,
-    0 2px 5px #B4BEFE63;
 }
 
 

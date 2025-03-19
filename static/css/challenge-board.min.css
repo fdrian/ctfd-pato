@@ -52,7 +52,7 @@
     cursor: pointer;    
     color: rgba(250, 250, 250, 0.4);
     margin: 2rem;
-    border: 1px solid #111;
+    border: 1px solid #181825;
   }
 
 
@@ -66,6 +66,7 @@
   .solved-challenge {
     color: #B4BEFE;
     background-color: #8826F9;
+    border: 1px solid #B4BEFE;
   }
   
 .challenge-button:hover {
@@ -116,9 +117,9 @@
     position: absolute;
     background-image: linear-gradient(
       var(--rotate),
-      #050506,
-      #0a090b 50%,
-      #100e12
+      #1e1e2e,
+      #181825 50%,
+      #11111b
     );
     z-index: -1;
     top: -1%;

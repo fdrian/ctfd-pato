@@ -100,7 +100,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    */
   :root {
-    --purple: #8826f9;
+    #8826f9: #8826f9;
     --blue: #007bff;
     --indigo: #6610f2;
     --pink: #e83e8c;
@@ -253,7 +253,7 @@
     background-color: transparent;
   }
   a:hover {
-    color: --purple;
+    color: #8826f9;
     text-decoration: underline;
   }
   a:not([href]):not([tabindex]),
@@ -1423,7 +1423,7 @@
     text-transform: uppercase;
   }
   .table thead tr {
-    color: --purple;   
+    color: #8826f9;   
     text-transform: uppercase;
   }
   .table tbody + tbody {
@@ -2165,7 +2165,7 @@
     }
   }
   .btn:hover {
-    color: --purple;
+    color: #8826f9;
     text-decoration: none;
   }
   .btn.focus,
@@ -2194,34 +2194,34 @@
   .btn-outline-hint:hover {
     color: #fff;
     
-    background-image: radial-gradient(circle at 50% 180%, --purple, --purple00 67%), linear-gradient(--purple, #49BF88);
+    background-image: radial-gradient(circle at 50% 180%, #8826f9, #8826f900 67%), linear-gradient(#8826f9, #49BF88);
     transition: box-shadow .375s, transform .375s cubic-bezier(.175, .885, .32, 1.275);
-    border: 1px solid --purple;
-    box-shadow: inset 0 -8px 32px --purple, inset 0 0 12px #ffffff14, 0 53px 15px --purple03, 0 34px 14px --purple0f, 0 19px 11px --purple33, 0 8px 8px --purple57, 0 2px 5px --purple63;
+    border: 1px solid #8826f9;
+    box-shadow: inset 0 -8px 32px #8826f9, inset 0 0 12px #ffffff14, 0 53px 15px #8826f903, 0 34px 14px #8826f90f, 0 19px 11px #8826f933, 0 8px 8px #8826f957, 0 2px 5px #8826f963;
     
   }
 
   .btn-primary.focus,
   .btn-primary:focus {
-    box-shadow: 0 0 0 0.2rem --purple80;
+    box-shadow: 0 0 0 0.2rem #8826f980;
   }
   .btn-primary.disabled,
   .btn-primary:disabled {
     color: #fff;
-    background-color: --purple;
-    border-color: --purple;
+    background-color: #8826f9;
+    border-color: #8826f9;
   }
   .btn-primary:not(:disabled):not(.disabled).active,
   .btn-primary:not(:disabled):not(.disabled):active,
   .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: --purple;
-    border-color: --purple;
+    background-color: #8826f9;
+    border-color: #8826f9;
   }
   .btn-primary:not(:disabled):not(.disabled).active:focus,
   .btn-primary:not(:disabled):not(.disabled):active:focus,
   .show > .btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem --purple80;
+    box-shadow: 0 0 0 0.2rem #8826f980;
   }
   .btn-secondary {
     color: #fff;
@@ -2307,8 +2307,8 @@
   .btn-info:not(:disabled):not(.disabled):active,
   .show > .btn-info.dropdown-toggle {
     color: #fff;
-    background-color: --purple;
-    border-color: --purple;
+    background-color: #8826f9;
+    border-color: #8826f9;
   }
   .btn-info:not(:disabled):not(.disabled).active:focus,
   .btn-info:not(:disabled):not(.disabled):active:focus,
@@ -2443,8 +2443,8 @@
   .btn-outline-primary:hover,
   .btn-outline-secondary:hover {
     color: #fff;
-    background-color: --purple;
-    border-color: --purple;
+    background-color: #8826f9;
+    border-color: #8826f9;
     box-shadow: 2px 2px #fafafa;
   }
   .btn-outline-primary.focus,
@@ -2488,15 +2488,15 @@
   }
   .btn-outline-secondary.disabled,
   .btn-outline-secondary:disabled {
-    color: --purple;
+    color: #8826f9;
     background-color: transparent;
   }
   .btn-outline-secondary:not(:disabled):not(.disabled).active,
   .btn-outline-secondary:not(:disabled):not(.disabled):active,
   .show > .btn-outline-secondary.dropdown-toggle {
     color: #fff;
-    background-color: --purple;
-    border-color: --purple;
+    background-color: #8826f9;
+    border-color: #8826f9;
   }
   .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
   .btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
@@ -2504,12 +2504,12 @@
     box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
   }
   .btn-outline-success {
-    color: --purple;
-    border-color: --purple;
+    color: #8826f9;
+    border-color: #8826f9;
   }
   .btn-outline-success:hover {
     color: #fff;
-    background-color: --purple;
+    background-color: #8826f9;
     border-color: #2800f2ffa745;
   }
   .btn-outline-success.focus,
@@ -3388,13 +3388,13 @@
     appearance: none;
   }
   .custom-select:focus {
-    border-color: --purple;
+    border-color: #8826f9;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
   .custom-select:focus::-ms-value {
     color: #fff;
-    background-color: --purple;
+    background-color: #8826f9;
   }
   .custom-select[multiple],
   .custom-select[size]:not([size="1"]) {
@@ -3979,7 +3979,7 @@
   }
   .navbar-dark .navbar-nav .nav-link:focus,
   .navbar-dark .navbar-nav .nav-link:hover {
-    color: --purple;
+    color: #8826f9;
   }
   .navbar-dark .navbar-nav .nav-link.disabled {
     color: hsla(0, 0%, 100%, 0.25);
@@ -4921,7 +4921,7 @@
     opacity: 0.5;
   }
   .close:hover {
-    color: --purple;
+    color: #8826f9;
     text-decoration: none;
   }
   .close:not(:disabled):not(.disabled):focus,
@@ -9544,7 +9544,7 @@
     text-decoration: none;
   }
   a:hover {
-    color: --purple;
+    color: #8826f9;
     text-decoration: none;
   }
   table > thead > tr > td {
@@ -9574,7 +9574,7 @@
   }
   .form-control:focus,
   .input-filled-valid {
-    color: --purple;    
+    color: #8826f9;    
     box-shadow: 0 0 0 0.1rem #0a090b;
     transition: background-color 0.3s, border-color 0.3s;
   }

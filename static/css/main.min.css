@@ -3692,7 +3692,7 @@
   }
   .tab-content > .tab-pane {
     display: none;
-    background-color: #11111B88;
+    background-color: #11111BBB;
   }
   .tab-content > .active {
     display: block;

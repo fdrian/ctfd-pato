@@ -65,7 +65,7 @@
 
   .solved-challenge {
     color: #B4BEFE;
-    
+    background-color: #8826F9;
   }
   
 .challenge-button:hover {
@@ -197,4 +197,6 @@
       --rotate: 360deg;
     }
   }
+  
+
   

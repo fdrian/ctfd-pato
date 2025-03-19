@@ -161,9 +161,9 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: white;
+    color: #B4BEFE;
     text-align: left;
-    background-color: rgba(0, 0, 0, 1);      
+    background-color: #00000F;
     margin: 1em;
     z-index: -10;  
   }
@@ -3173,8 +3173,8 @@
     color: #9399b2;
     text-align: center;
     white-space: nowrap;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
+    background-color: #1e1e2e;
+    border: 1px solid ##313244;
     border-radius: 0.25rem;
   }
   .input-group-text input[type="checkbox"],

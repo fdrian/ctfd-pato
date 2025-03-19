@@ -69,10 +69,10 @@
   }
   
 .challenge-button:hover {
-  color: #fff;  
+  color: #B4BEFE;  
   background-image: 
-      radial-gradient(circle at 50% 180%, #8826f9 #00f2ff00 67%), 
-      linear-gradient(#8826f9 #8826f9);
+      radial-gradient(circle at 50% 180%, #8826f9 #8839ef 67%), 
+      linear-gradient(#8826f9 #8839ef);
   transition: box-shadow .375s, transform .375s cubic-bezier(.175, .885, .32, 1.275);
   border: 1px solid #8826f9;
   box-shadow: inset 0 -8px 32px #8826f9 inset 0 0 12px #ffffff14, 0 53px 15px #00f2ff03, 0 34px 14px #00f2ff0f, 0 19px 11px #00f2ff33, 0 8px 8px #00f2ff57, 0 2px 5px #00f2ff63; 
@@ -103,10 +103,10 @@
   }
   .key-submit .btn {
     height: 51px;
-    color: #fff;
+    color: #B4BEFE;
     background-color: #0EDCE6;
     border-color: #0EDCE6;
-    box-shadow: 2px 2px #fafafa;
+    box-shadow: 2px 2px #B4BEFE;
   }
 .challenge-button::before {
     content: "";

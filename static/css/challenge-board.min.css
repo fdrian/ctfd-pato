@@ -156,9 +156,8 @@
     position: absolute;
     background-image: linear-gradient(
       var(--rotate),
-      #49BF88,
-      #49BF88 50%,
-      #226e45
+      #8839ef,
+      #8826F9 50%
     );
     z-index: -1;
     top: -1%;
@@ -179,9 +178,8 @@
     filter: blur(calc(var(--card-height) / 6));
     background-image: linear-gradient(
       var(--rotate),
-      #49bf80,
-      #49bf74 50%,
-      #49bf88
+      #8826F9,
+      #8839ef 50%
     );
     opacity: 1;
     transition: opacity 0.5s;

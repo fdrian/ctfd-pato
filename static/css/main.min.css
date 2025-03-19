@@ -1684,7 +1684,7 @@
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #0a090b;
+    border: 1px solid #00000F
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
@@ -2183,7 +2183,7 @@
   }
   .btn-primary {
     color: #fff;
-    background-color: #0a090b;
+    background-color: #00000F
     border-color: #181820;
   }
   .btn-primary:hover,
@@ -2313,7 +2313,7 @@
   .btn-info:not(:disabled):not(.disabled).active:focus,
   .btn-info:not(:disabled):not(.disabled):active:focus,
   .show > .btn-info.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem #0a090b;
+    box-shadow: 0 0 0 0.2rem #00000F
   }
   .btn-warning {
     color: #212529;
@@ -2470,7 +2470,7 @@
   }
   .btn-outline-hint {
     color: #fafafa;
-    background-color: #0a090b;
+    background-color: #00000F
     border-color: #181820;
     
   }
@@ -4452,7 +4452,7 @@
   .jumbotron {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
-    background-color: #0a090b;
+    background-color: #00000F
     border-radius: 0.3rem;
   }
   @media (min-width: 576px) {
@@ -4941,7 +4941,7 @@
     max-width: 350px;
     overflow: hidden;
     font-size: 0.875rem;
-    background-color: #0a090b;
+    background-color: #00000F
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
@@ -4967,7 +4967,7 @@
     align-items: center;
     padding: 0.25rem 0.75rem;
     color: #6c757d;
-    background-color: #0a090b;
+    background-color: #00000F
     background-clip: padding-box;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
@@ -5052,9 +5052,9 @@
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: #0a090b;
+    background-color: #00000F
     background-clip: padding-box;
-    border: 4px solid #0a090b;
+    border: 4px solid #00000F
     border-radius: 0.3rem;
     outline: 0;
   }
@@ -9575,7 +9575,7 @@
   .form-control:focus,
   .input-filled-valid {
     color: #8826f9;    
-    box-shadow: 0 0 0 0.1rem #0a090b;
+    box-shadow: 0 0 0 0.1rem #00000F
     transition: background-color 0.3s, border-color 0.3s;
   }
   .input-filled-invalid,
@@ -9647,7 +9647,7 @@
     font-size: 50%;
   }
 .graph {
-  background-color: #0a090b;
+  background-color: #00000F
   color: red;
   
 }  

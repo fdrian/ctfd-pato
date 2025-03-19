@@ -166,7 +166,7 @@ body {
   background-image: url("../img/gray-logo.svg");
   background-repeat: repeat;
   background-size: 50px 50px;  
-  background-color: #0a090b; 
+  background-color: #00000F 
   z-index: -10;
   
 }
@@ -2313,7 +2313,7 @@ fieldset:disabled a.btn {
 .btn-info:not(:disabled):not(.disabled).active:focus,
 .btn-info:not(:disabled):not(.disabled):active:focus,
 .show > .btn-info.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem #0a090b;
+  box-shadow: 0 0 0 0.2rem #00000F
 }
 .btn-warning {
   color: #212529;
@@ -4452,7 +4452,7 @@ a.badge-dark:focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #0a090b;
+  background-color: #00000F
   border-radius: 0.3rem;
 }
 @media (min-width: 576px) {
@@ -4917,7 +4917,7 @@ a.badge-dark:focus {
   font-weight: 700;
   line-height: 1;
   color: #E31F24;
-  text-shadow: 0 1px 0 #0a090b;
+  text-shadow: 0 1px 0 #00000F
   opacity: 0.5;
 }
 .close:hover {
@@ -5052,9 +5052,9 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #0a090b;
+  background-color: #00000F
   background-clip: padding-box;
-  border: 4px solid #0a090b;
+  border: 4px solid #00000F
   border-radius: 0.3rem;
   outline: 0;
 }
@@ -9575,7 +9575,7 @@ blockquote {
 .form-control:focus,
 .input-filled-valid {
   color: #8826f9;    
-  box-shadow: 0 0 0 0.1rem #0a090b;
+  box-shadow: 0 0 0 0.1rem #00000F
   transition: background-color 0.3s, border-color 0.3s;
 }
 .input-filled-invalid,
@@ -9647,7 +9647,7 @@ blockquote {
   font-size: 50%;
 }
 .graph {
-background-color: #0a090b;
+background-color: #00000F
 color: red;
 
 }  

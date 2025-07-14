@@ -1699,8 +1699,8 @@
   }
   .form-control:focus {
     color: #9399b2;
-    background-color: #B4BEFE;
-    border-color: #80bdff;
+    background-color: #181819;
+    border-color: #8826F9;
     outline: 0;
     box-shadow: 0 0 0 0.2rem #8826F9;
   }
@@ -1710,7 +1710,7 @@
   }
   .form-control:disabled,
   .form-control[readonly] {
-    background-color: #000;
+    background-color: #00000f;
     opacity: 1;
   }
   select.form-control:focus::-ms-value {
@@ -2183,9 +2183,10 @@
   }
   .btn-primary {
     color: #B4BEFE;
-    background-color: #00000F
-    border-color: #11111B;
+    background-color: #00000F;
+    border: 1px solid #8826f9;
   }
+
   .btn-primary:hover,
   .btn-secondary:hover,
   .btn-info:hover, 
@@ -3263,7 +3264,7 @@
     box-shadow: 0 0 0 0.2rem #11111B;
   }
   .custom-control-input:focus:not(:checked) ~ .custom-control-label:before {
-    border-color: #80bdff;
+    border-color: #8826F9;
   }
   .custom-control-input:not(:disabled):active ~ .custom-control-label:before {
     color: #B4BEFE;
@@ -3439,7 +3440,7 @@
     opacity: 0;
   }
   .custom-file-input:focus ~ .custom-file-label {
-    border-color: #80bdff;
+    border-color: #8826F9;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
   .custom-file-input:disabled ~ .custom-file-label {
@@ -4545,9 +4546,9 @@
     color: #533f03;
   }
   .alert-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+    color: #dce0e8;
+    background-color: #d20f39;
+    border-color: #d20f39;
   }
   .alert-danger hr {
     border-top-color: #f1b0b7;
@@ -5702,13 +5703,13 @@
     background-color: #dae0e5 !important;
   }
   .bg-dark {
-    background-color: #0a090b !important;
+    background-color: #00000f !important;
   }
   a.bg-dark:focus,
   a.bg-dark:hover,
   button.bg-dark:focus,
   button.bg-dark:hover {
-    background-color: #0a090b !important;
+    background-color: #00000f !important;
   }
   .bg-white {
     background-color: #fff !important;
@@ -9581,7 +9582,7 @@
   }
   .input-filled-invalid,
   .input-filled-valid {
-    background-color: #0a090b !important;
+    background-color: #00000f !important;
   }
   .input-filled-invalid {
     border-color: #d46767;
@@ -9614,6 +9615,7 @@
     font-weight: 700;
     padding: 8px 20px;
   }
+
   .btn-info {
     border-color: #E3CF36 !important;
   }

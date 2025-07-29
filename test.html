@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTFd Pato Theme - Test</title>
+
+  <!-- Bootstrap CSS (base do CTFd) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Highlight.js CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/mocha.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alata:wght@400&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- CTFd CSS Files -->
+  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="static/css/core.css">
+
+  <style>
+    /* Particles.js background simulation */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(2px 2px at 20px 30px, rgba(136, 39, 249, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(136, 39, 249, 0.2), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(136, 39, 249, 0.4), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(136, 39, 249, 0.2), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(136, 39, 249, 0.3), transparent);
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      z-index: -1;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Additional theme fixes */
+    .navbar-brand img {
+      filter: brightness(1.2);
+    }
+
+    .challenge-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .challenge-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(136, 39, 249, 0.3);
+    }
+
+    /* Enhanced Modal Styles */
+    .modal-content {
+      background-color: var(--bg-secondary) !important;
+      border: 2px solid var(--primary-color) !important;
+      border-radius: 12px !important;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(136, 39, 249, 0.3) !important;
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover)) !important;
+      color: white !important;
+      border-bottom: none !important;
+      border-radius: 10px 10px 0 0 !important;
+    }
+
+    .modal-title {
+      color: white !important;
+      font-weight: 600;
+    }
+
+    .modal-body {
+      padding: 2rem !important;
+    }
+
+    .modal-footer {
+      border-top: 1px solid var(--border-color) !important;
+      background-color: var(--hover-bg) !important;
+      border-radius: 0 0 10px 10px !important;
+    }
+
+    .modal-backdrop {
+      background-color: rgba(11, 11, 21, 0.8) !important;
+    }
+
+    /* Modal animation enhancements */
+    .modal.fade .modal-dialog {
+      transform: scale(0.8) rotate(-2deg);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .modal.show .modal-dialog {
+      transform: scale(1) rotate(0deg);
+    }
+
+    /* Flag input styling in modals */
+    .modal .form-control {
+      background-color: var(--bg-primary) !important;
+      border: 2px solid var(--border-color) !important;
+      color: var(--text-primary) !important;
+      border-radius: 8px !important;
+      padding: 12px 16px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .modal .form-control:focus {
+      border-color: var(--primary-color) !important;
+      box-shadow: 0 0 0 0.2rem var(--primary-light) !important;
+      background-color: var(--hover-bg) !important;
+    }
+
+    /* Close button styling */
+    .modal .close {
+      color: white !important;
+      opacity: 0.8 !important;
+      font-size: 1.5rem !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .modal .close:hover {
+      opacity: 1 !important;
+      transform: scale(1.1) !important;
+    }
+
+    /* Success/Error states */
+    .is-valid {
+      border-color: var(--success-color) !important;
+      box-shadow: 0 0 0 0.2rem rgba(64, 160, 43, 0.25) !important;
+    }
+
+    .is-invalid {
+      border-color: var(--danger-color) !important;
+      box-shadow: 0 0 0 0.2rem rgba(210, 15, 57, 0.25) !important;
+    }
+
+    /* Loading spinner animation */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .fa-spin {
+      animation: spin 1s linear infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="particles"></div>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-flag" style="color: var(--primary-color); margin-right: 10px;"></i>
+        CTFd Pato
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-puzzle-piece"></i> Challenges</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-trophy"></i> Scoreboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i> Teams</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary ml-2" href="#"><i class="fas fa-sign-in-alt"></i> Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="jumbotron jumbotron-fluid mb-4">
+    <div class="container text-center">
+      <h1 class="display-4 font-weight-bold">Bem-vindo ao CTFd Pato</h1>
+      <p class="lead">Capture The Flag Platform com tema personalizado</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">
+        <i class="fas fa-play"></i> Começar Desafios
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Alerts -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="alert alert-primary" role="alert">
+          <i class="fas fa-info-circle"></i>
+          <strong>Informação:</strong> Este é um exemplo do tema CTFd Pato em ação!
+        </div>
+      </div>
+    </div>
+
+    <!-- Challenge Categories -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h2 class="text-center mb-4">Categorias de Desafios</h2>
+        <ul class="nav nav-pills justify-content-center mb-4">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Todos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Web</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Crypto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pwn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Reverse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Forensics</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Challenge Cards -->
+    <div class="row mb-4">
+      <div class="col-lg-4 col-md-6 mb-3">
+        <div class="card challenge-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Easy Web Challenge</h5>
+            <span class="badge badge-primary">100 pts</span>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Um desafio web básico para iniciantes. Encontre a flag escondida!</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fas fa-users"></i> 42 solves</small>
+              <span class="badge badge-success">Web</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary btn-block challenge-button">
+              <i class="fas fa-flag"></i> Resolver
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-3">
+        <div class="card challenge-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Crypto Mystery</h5>
+            <span class="badge badge-warning">250 pts</span>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Decodifique esta mensagem cifrada usando suas habilidades de criptografia.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fas fa-users"></i> 15 solves</small>
+              <span class="badge badge-info">Crypto</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary btn-block challenge-button">
+              <i class="fas fa-flag"></i> Resolver
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-3">
+        <div class="card challenge-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Binary Exploitation</h5>
+            <span class="badge badge-danger">500 pts</span>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Explore vulnerabilidades em binários e ganhe acesso root.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fas fa-users"></i> 3 solves</small>
+              <span class="badge badge-danger">Pwn</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary btn-block challenge-button">
+              <i class="fas fa-flag"></i> Resolver
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forms Section -->
+    <div class="row mb-4">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-flag"></i> Submeter Flag</h5>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="flagInput">Flag:</label>
+              <input type="text" class="form-control" id="flagInput" placeholder="CTF{your_flag_here}" readonly>
+              <small class="form-text text-muted">Clique no botão abaixo para abrir o formulário de submissão</small>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" id="openFlagModal">
+              <i class="fas fa-external-link-alt"></i> Abrir Formulário de Submissão
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-search"></i> Buscar Desafios</h5>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Buscar por nome ou categoria...">
+              </div>
+              <div class="form-group">
+                <label for="categoryFilter">Filtrar por categoria:</label>
+                <select class="form-control" id="categoryFilter">
+                  <option value="">Todas as categorias</option>
+                  <option value="web">🌐 Web Exploitation</option>
+                  <option value="crypto">🔐 Cryptography</option>
+                  <option value="pwn">💀 Binary Exploitation</option>
+                  <option value="reverse">🔄 Reverse Engineering</option>
+                  <option value="forensics">🔍 Digital Forensics</option>
+                  <option value="misc">🎯 Miscellaneous</option>
+                  <option value="osint" disabled>🕵️ OSINT (Em breve)</option>
+                </select>
+                <small class="form-text text-muted">Teste o contraste das opções selecionadas</small>
+              </div>
+              <button type="submit" class="btn btn-secondary btn-block">
+                <i class="fas fa-search"></i> Buscar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scoreboard Table -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-trophy"></i> Placar de Líderes</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped scoreboard-table">
+                <thead>
+                  <tr>
+                    <th>Posição</th>
+                    <th>Equipe</th>
+                    <th>Pontuação</th>
+                    <th>Último Submit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge badge-warning">1º</span></td>
+                    <td><strong>Pato Hackers</strong></td>
+                    <td>2500 pts</td>
+                    <td>2 minutos atrás</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge badge-secondary">2º</span></td>
+                    <td>Cyber Ducks</td>
+                    <td>2100 pts</td>
+                    <td>15 minutos atrás</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge badge-secondary">3º</span></td>
+                    <td>Binary Swimmers</td>
+                    <td>1850 pts</td>
+                    <td>1 hora atrás</td>
+                  </tr>
+                  <tr>
+                    <td>4º</td>
+                    <td>Code Breakers</td>
+                    <td>1600 pts</td>
+                    <td>2 horas atrás</td>
+                  </tr>
+                  <tr>
+                    <td>5º</td>
+                    <td>Shell Masters</td>
+                    <td>1200 pts</td>
+                    <td>3 horas atrás</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Bars -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-chart-line"></i> Progresso por Categoria</h5>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <span>Web</span>
+                <span>8/10</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <span>Crypto</span>
+                <span>5/8</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 62.5%"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <span>Pwn</span>
+                <span>2/6</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 33%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Example -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-code"></i> Exemplo de Código - Tema Catppuccin Mocha</h5>
+          </div>
+          <div class="card-body">
+            <pre><code class="hljs python"><span class="hljs-keyword">import</span> <span class="hljs-built_in">hashlib</span>
+<span class="hljs-keyword">import</span> <span class="hljs-built_in">requests</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_flag</span>():</span>
+    <span class="hljs-comment"># Hash MD5 da flag</span>
+    <span class="hljs-variable">target</span> = <span class="hljs-string">"5d41402abc4b2a76b9719d911017c592"</span>
+    <span class="hljs-variable">base_url</span> = <span class="hljs-string">"http://challenge.ctfdpato.com"</span>
+    
+    <span class="hljs-keyword">for</span> <span class="hljs-variable">i</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1000000</span>):
+        <span class="hljs-variable">test</span> = <span class="hljs-string">f"CTF{{pato_{i}}}"</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-built_in">hashlib</span>.<span class="hljs-function">md5</span>(<span class="hljs-variable">test</span>.<span class="hljs-function">encode</span>()).<span class="hljs-function">hexdigest</span>() == <span class="hljs-variable">target</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-variable">test</span>
+    
+    <span class="hljs-keyword">return</span> <span class="hljs-constant">None</span>
+
+<span class="hljs-comment"># Exemplo de função com diferentes tipos</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">exploit_buffer</span>(<span class="hljs-variable">payload</span>: <span class="hljs-type">str</span>) -> <span class="hljs-type">bool</span>:</span>
+    <span class="hljs-string">"""
+    Exploit function demonstrating syntax highlighting
+    """</span>
+    <span class="hljs-variable">buffer</span> = <span class="hljs-string">b"A"</span> * <span class="hljs-number">64</span> + <span class="hljs-variable">payload</span>.<span class="hljs-function">encode</span>()
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-variable">response</span> = <span class="hljs-built_in">requests</span>.<span class="hljs-function">post</span>(<span class="hljs-variable">base_url</span>, <span class="hljs-variable">data</span>=<span class="hljs-variable">buffer</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"flag{"</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">response</span>.<span class="hljs-attribute">text</span>
+    <span class="hljs-keyword">except</span> <span class="hljs-type">Exception</span> <span class="hljs-keyword">as</span> <span class="hljs-variable">e</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">f"Erro: {e}"</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-constant">False</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-function">find_flag</span>())</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Code Example -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0"><i class="fab fa-js-square"></i> Exemplo JavaScript - XSS Challenge</h5>
+          </div>
+          <div class="card-body">
+            <pre><code class="hljs javascript"><span class="hljs-comment">// CTF Challenge - XSS Exploitation</span>
+<span class="hljs-keyword">const</span> <span class="hljs-variable">API_URL</span> = <span class="hljs-string">'https://api.ctfdpato.com'</span>;
+
+<span class="hljs-comment">/**
+ * Função para explorar XSS vulnerabilities
+ */</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exploitXSS</span>(<span class="hljs-variable">payload</span>) {</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-variable">encodedPayload</span> = <span class="hljs-built_in">btoa</span>(<span class="hljs-variable">payload</span>);
+    <span class="hljs-keyword">const</span> <span class="hljs-variable">targetURL</span> = <span class="hljs-string">`<span class="hljs-template-variable">${API_URL}</span>/vulnerable?input=<span class="hljs-template-variable">${encodedPayload}</span>`</span>;
+    
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">const</span> <span class="hljs-variable">response</span> = <span class="hljs-keyword">await</span> <span class="hljs-built_in">fetch</span>(<span class="hljs-variable">targetURL</span>, {
+            <span class="hljs-attribute">method</span>: <span class="hljs-string">'POST'</span>,
+            <span class="hljs-attribute">headers</span>: {
+                <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>,
+                <span class="hljs-string">'X-CTF-Token'</span>: <span class="hljs-built_in">localStorage</span>.<span class="hljs-function">getItem</span>(<span class="hljs-string">'ctf_token'</span>)
+            },
+            <span class="hljs-attribute">body</span>: <span class="hljs-built_in">JSON</span>.<span class="hljs-function">stringify</span>({ <span class="hljs-attribute">payload</span>: <span class="hljs-variable">payload</span> })
+        });
+        
+        <span class="hljs-keyword">if</span> (<span class="hljs-variable">response</span>.<span class="hljs-attribute">ok</span>) {
+            <span class="hljs-keyword">const</span> <span class="hljs-variable">data</span> = <span class="hljs-keyword">await</span> <span class="hljs-variable">response</span>.<span class="hljs-function">json</span>();
+            <span class="hljs-keyword">return</span> <span class="hljs-variable">data</span>.<span class="hljs-attribute">flag</span> || <span class="hljs-string">'No flag found'</span>;
+        }
+    } <span class="hljs-keyword">catch</span> (<span class="hljs-variable">error</span>) {
+        <span class="hljs-built_in">console</span>.<span class="hljs-function">error</span>(<span class="hljs-string">'Exploit failed:'</span>, <span class="hljs-variable">error</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-constant">null</span>;
+    }
+}
+
+<span class="hljs-comment">// Payloads comuns para XSS</span>
+<span class="hljs-keyword">const</span> <span class="hljs-variable">xssPayloads</span> = [
+    <span class="hljs-string">'&lt;script&gt;alert("XSS")&lt;/script&gt;'</span>,
+    <span class="hljs-string">'&lt;img src=x onerror=alert("CTF{pato_xss}")&gt;'</span>,
+    <span class="hljs-string">'javascript:alert(document.cookie)'</span>
+];
+
+<span class="hljs-comment">// Executar exploits</span>
+<span class="hljs-variable">xssPayloads</span>.<span class="hljs-function">forEach</span>(<span class="hljs-keyword">async</span> (<span class="hljs-variable">payload</span>, <span class="hljs-variable">index</span>) => {
+    <span class="hljs-built_in">console</span>.<span class="hljs-function">log</span>(<span class="hljs-string">`Testing payload <span class="hljs-template-variable">${index + 1}</span>...`</span>);
+    <span class="hljs-keyword">const</span> <span class="hljs-variable">result</span> = <span class="hljs-keyword">await</span> <span class="hljs-function">exploitXSS</span>(<span class="hljs-variable">payload</span>);
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable">result</span>) {
+        <span class="hljs-built_in">console</span>.<span class="hljs-function">log</span>(<span class="hljs-string">'🎉 Flag found:'</span>, <span class="hljs-variable">result</span>);
+    }
+});</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Anterior</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">Próximo</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-5 py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 CTFd Pato. Todos os direitos reservados.</p>
+        </div>
+        <div class="col-md-6 text-md-right">
+          <a href="#" class="text-decoration-none mr-3"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" class="text-decoration-none mr-3"><i class="fab fa-discord"></i> Discord</a>
+          <a href="#" class="text-decoration-none"><i class="fas fa-envelope"></i> Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Challenge Modal -->
+  <div class="modal fade" id="challengeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="fas fa-puzzle-piece"></i> Easy Web Challenge</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="challenge-desc">
+            <p>Este é um desafio web simples onde você precisa encontrar a flag escondida no código fonte da página.</p>
+            <p><strong>Dica:</strong> Às vezes a resposta está bem na frente dos seus olhos!</p>
+            <p>Acesse: <a href="#" target="_blank">http://challenge.ctfdpato.com</a></p>
+          </div>
+          <div class="mt-4">
+            <div class="form-group">
+              <label for="modalFlagInput">Flag:</label>
+              <input type="text" class="form-control" id="modalFlagInput" placeholder="CTF{your_flag_here}">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" id="submitChallengeFlag">Submeter Flag</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flag Submission Modal -->
+  <div class="modal fade" id="flagSubmissionModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="fas fa-flag"></i> Submeter Flag</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="flagSubmissionForm">
+            <div class="form-group">
+              <label for="modalSubmitFlagInput">Digite sua flag:</label>
+              <input type="text" class="form-control" id="modalSubmitFlagInput" placeholder="CTF{your_flag_here}"
+                autocomplete="off">
+              <small class="form-text text-muted">Formato esperado: CTF{...}</small>
+            </div>
+            <div class="form-group">
+              <label for="challengeSelect">Desafio (opcional):</label>
+              <select class="form-control" id="challengeSelect">
+                <option value="">Selecione um desafio...</option>
+                <option value="web-easy">🌐 Easy Web Challenge (100 pts)</option>
+                <option value="crypto-medium">🔐 Crypto Mystery (250 pts)</option>
+                <option value="pwn-hard">💀 Binary Exploitation (500 pts)</option>
+                <option value="reverse-insane">🔄 Kernel Reverse (1000 pts)</option>
+                <option value="forensics-medium">🔍 Memory Dump Analysis (300 pts)</option>
+                <option value="misc-easy">🎯 Sanity Check (50 pts)</option>
+                <option value="coming-soon" disabled>🚧 Próximos desafios...</option>
+              </select>
+              <small class="form-text text-muted">Observe o contraste visual das opções</small>
+            </div>
+          </form>
+          <div id="submissionResult" class="mt-3" style="display: none;"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="submitFlag">
+            <i class="fas fa-check"></i> Submeter Flag
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--particles script-->
+  <script defer src="static/js/particles.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      console.log('Window loaded, initializing particles...');
+
+      // Check if particles element exists
+      const particlesEl = document.getElementById('particles');
+      console.log('Particles element:', particlesEl);
+
+      if (typeof particlesJS !== 'undefined') {
+        console.log('particlesJS is available');
+
+        // Small delay to ensure everything is ready
+        setTimeout(function () {
+          particlesJS("particles", {
+            "particles": {
+              "number": {
+                "value": 80,
+                "density": {
+                  "enable": true,
+                  "value_area": 1200
+                }
+              },
+              "color": {
+                "value": ["#8a4ff9", "#9d5afa", "#6b3cd4", "#b470fb", "#7c3ff5", "#a055ff"]
+              },
+              "shape": {
+                "type": ["circle", "triangle", "edge"],
+                "stroke": {
+                  "width": 1.0,
+                  "color": "#8a4ff9"
+                },
+                "polygon": {
+                  "nb_sides": 3
+                }
+              },
+              "opacity": {
+                "value": 0.8,
+                "random": true,
+                "anim": {
+                  "enable": true,
+                  "speed": 1.5,
+                  "opacity_min": 0.05,
+                  "sync": false
+                }
+              },
+              "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                  "enable": true,
+                  "speed": 2.5,
+                  "size_min": 0.2,
+                  "sync": false
+                }
+              },
+              "line_linked": {
+                "enable": true,
+                "distance": 100,
+                "color": "#b4befe",
+                "opacity": 0.4,
+                "width": 1.0
+              },
+              "move": {
+                "enable": true,
+                "speed": 2.5,
+                "direction": "none",
+                "random": true,
+                "straight": false,
+                "out_mode": "bounce",
+                "bounce": true,
+                "attract": {
+                  "enable": true,
+                  "rotateX": 1000,
+                  "rotateY": 1000
+                }
+              }
+            },
+            "interactivity": {
+              "detect_on": "canvas",
+              "events": {
+                "onhover": {
+                  "enable": true,
+                  "mode": ["grab", "bubble"]
+                },
+                "onclick": {
+                  "enable": true,
+                  "mode": "repulse"
+                },
+                "resize": true
+              },
+              "modes": {
+                "grab": {
+                  "distance": 180,
+                  "line_linked": {
+                    "opacity": 0.9
+                  }
+                },
+                "bubble": {
+                  "distance": 250,
+                  "size": 16,
+                  "duration": 1.5,
+                  "opacity": 1,
+                  "speed": 4
+                },
+                "repulse": {
+                  "distance": 180,
+                  "duration": 0.8
+                },
+                "push": {
+                  "particles_nb": 8
+                },
+                "remove": {
+                  "particles_nb": 4
+                }
+              }
+            },
+            "retina_detect": true
+          });
+          console.log('particles.js initialized');
+        }, 100);
+      } else {
+        console.error('particlesJS is not defined');
+      }
+    });
+  </script>
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Simple interactions
+    $(document).ready(function () {
+      // Challenge card click
+      $('.challenge-button').click(function (e) {
+        e.preventDefault();
+        $('#challengeModal').modal('show');
+      });
+
+      // Open flag submission modal
+      $('#openFlagModal').click(function (e) {
+        e.preventDefault();
+        $('#flagSubmissionModal').modal('show');
+        // Clear previous results
+        $('#submissionResult').hide();
+        $('#modalSubmitFlagInput').val('').removeClass('is-valid is-invalid');
+        $('#challengeSelect').val('');
+      });
+
+      // Submit flag from challenge modal
+      $('#submitChallengeFlag').click(function () {
+        const flag = $('#modalFlagInput').val();
+        submitFlag(flag, 'web-easy', $(this));
+      });
+
+      // Submit flag from main submission modal
+      $('#submitFlag').click(function () {
+        const flag = $('#modalSubmitFlagInput').val();
+        const challenge = $('#challengeSelect').val();
+        submitFlag(flag, challenge, $(this));
+      });
+
+      // Function to simulate flag submission
+      function submitFlag(flag, challenge, button) {
+        if (!flag || !flag.startsWith('CTF{') || !flag.endsWith('}')) {
+          showSubmissionResult('Formato de flag inválido! Use o formato CTF{...}', 'error');
+          return;
+        }
+
+        // Disable button and show loading
+        const originalText = button.html();
+        button.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Enviando...');
+
+        // Simulate API call
+        setTimeout(function () {
+          // Simulate different responses based on flag
+          if (flag === 'CTF{pato_test_flag}') {
+            showSubmissionResult('🎉 Parabéns! Flag correta! +100 pontos', 'success');
+          } else if (flag === 'CTF{wrong_flag}') {
+            showSubmissionResult('❌ Flag incorreta. Tente novamente!', 'error');
+          } else {
+            showSubmissionResult('⚠️ Flag não encontrada no sistema.', 'warning');
+          }
+
+          // Reset button
+          button.prop('disabled', false).html(originalText);
+        }, 1500);
+      }
+
+      // Function to show submission results
+      function showSubmissionResult(message, type) {
+        const alertClass = type === 'success' ? 'alert-success' :
+          type === 'error' ? 'alert-danger' : 'alert-warning';
+
+        $('#submissionResult').html(`
+          <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+            ${message}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        `).show();
+      }
+
+      // Simulate typing effect for flag input
+      $('#flagInput, #modalFlagInput, #modalSubmitFlagInput').on('input', function () {
+        const value = $(this).val();
+        if (value.startsWith('CTF{') && value.endsWith('}')) {
+          $(this).addClass('is-valid').removeClass('is-invalid');
+        } else if (value.length > 0) {
+          $(this).addClass('is-invalid').removeClass('is-valid');
+        } else {
+          $(this).removeClass('is-valid is-invalid');
+        }
+      });
+
+      // Enter key to submit flags
+      $('#modalFlagInput').keypress(function (e) {
+        if (e.which === 13) {
+          $('#submitChallengeFlag').click();
+        }
+      });
+
+      $('#modalSubmitFlagInput').keypress(function (e) {
+        if (e.which === 13) {
+          $('#submitFlag').click();
+        }
+      });
+
+      // Auto-focus on modal open
+      $('#challengeModal').on('shown.bs.modal', function () {
+        $('#modalFlagInput').focus();
+      });
+
+      $('#flagSubmissionModal').on('shown.bs.modal', function () {
+        $('#modalSubmitFlagInput').focus();
+      });
+    });
+  </script>
+
+  <!-- Highlight.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+  <script>
+    // Initialize highlight.js
+    hljs.highlightAll();
+  </script>
+</body>
+
+</html>

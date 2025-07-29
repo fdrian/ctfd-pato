@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>{{ Configs.ctf_name }}</title>
 	<meta charset="utf-8">
@@ -13,14 +14,20 @@
 
 	{{ Plugins.styles }}
 
-	<meta name="description" content="Test your hacking skills in the {{ Configs.ctf_name }} CTF! Crack challenges, earn points, and climb the leaderboard.">
-    <meta name="keywords" content="CTF, capture the flag, hacking challenge, cybersecurity, computer security, {{ Configs.ctf_name }}">
+	<meta name="description"
+		content="Test your hacking skills in the {{ Configs.ctf_name }} CTF! Crack challenges, earn points, and climb the leaderboard.">
+	<meta name="keywords"
+		content="CTF, capture the flag, hacking challenge, cybersecurity, computer security, {{ Configs.ctf_name }}">
 
-    <meta property="og:title" content="**{{ Configs.ctf_name }}**">
-    <meta property="og:description" content="Test your hacking skills in the {{ Configs.ctf_name }} CTF! Crack challenges, earn points, and climb the leaderboard.">
-    <meta property="og:image" content="img/logo.png">  <meta name="twitter:card" content="summary_large_image">  <meta name="twitter:title" content="**{{ Configs.ctf_name }}!**">
-    <meta name="twitter:description" content="Test your hacking skills in the {{ Configs.ctf_name }} CTF! Crack challenges, earn points, and climb the leaderboard.">
-    <meta name="twitter:image" content="img/logo.png">
+	<meta property="og:title" content="**{{ Configs.ctf_name }}**">
+	<meta property="og:description"
+		content="Test your hacking skills in the {{ Configs.ctf_name }} CTF! Crack challenges, earn points, and climb the leaderboard.">
+	<meta property="og:image" content="img/logo.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="**{{ Configs.ctf_name }}!**">
+	<meta name="twitter:description"
+		content="Test your hacking skills in the {{ Configs.ctf_name }} CTF! Crack challenges, earn points, and climb the leaderboard.">
+	<meta name="twitter:image" content="img/logo.png">
 
 	<script type="text/javascript">
 		var init = {
@@ -28,18 +35,20 @@
 			'csrfNonce': "{{ Session.nonce }}",
 			'userMode': "{{ Configs.user_mode }}",
 			'userId': {{ Session.id }},
-			'userName': {{ User.name | tojson }},
-			'userEmail': {{ User.email | tojson }},
-			'teamId': {{ Team.id | tojson }}, 
-			'teamName': {{ Team.name | tojson }},
-			'start': {{ Configs.start | tojson }},
-			'end': {{ Configs.end | tojson }},
-			'theme_settings': {{ Configs.theme_settings | tojson }}
+		'userName': { { User.name | tojson } },
+		'userEmail': { { User.email | tojson } },
+		'teamId': { { Team.id | tojson } },
+		'teamName': { { Team.name | tojson } },
+		'start': { { Configs.start | tojson } },
+		'end': { { Configs.end | tojson } },
+		'theme_settings': { { Configs.theme_settings | tojson } }
 		}
 	</script>
 	{{ Configs.theme_header }}
 </head>
+
 <body>
+	<div id="particles"></div>
 	{% include "components/navbar.html" %}
 	<main role="main">
 		{% block content %}
@@ -48,7 +57,7 @@
 
 	<footer class="footer">
 		<div class="container text-center">
-			<a href="https://adrianofreitas.me" class="text-secondary">
+			<a href="https://fdrian.me" class="text-secondary">
 				<small class="text-muted">Designed by Drian</small>
 			</a>
 		</div>
@@ -62,6 +71,134 @@
 	<script defer src="{{ url_for('views.themes', path='js/pages/main.js') }}"></script>
 	{% endblock %}
 
+	<!--particles script-->
+	<script defer src="{{ url_for('views.themes', path='js/particles.js') }}"></script>
+	<script>
+		window.addEventListener('load', function () {
+			console.log('Window loaded, initializing particles...');
+
+			// Check if particles element exists
+			const particlesEl = document.getElementById('particles');
+			console.log('Particles element:', particlesEl);
+
+			if (typeof particlesJS !== 'undefined') {
+				console.log('particlesJS is available');
+
+				// Small delay to ensure everything is ready
+				setTimeout(function () {
+					particlesJS("particles", {
+						"particles": {
+							"number": {
+								"value": 80,
+								"density": {
+									"enable": true,
+									"value_area": 1200
+								}
+							},
+							"color": {
+								"value": ["#8a4ff9", "#9d5afa", "#6b3cd4", "#b470fb", "#7c3ff5", "#a055ff"]
+							},
+							"shape": {
+								"type": ["circle", "triangle", "edge"],
+								"stroke": {
+									"width": 1.0,
+									"color": "#8a4ff9"
+								},
+								"polygon": {
+									"nb_sides": 3
+								}
+							},
+							"opacity": {
+								"value": 0.8,
+								"random": true,
+								"anim": {
+									"enable": true,
+									"speed": 1.5,
+									"opacity_min": 0.05,
+									"sync": false
+								}
+							},
+							"size": {
+								"value": 3,
+								"random": true,
+								"anim": {
+									"enable": true,
+									"speed": 2.5,
+									"size_min": 0.2,
+									"sync": false
+								}
+							},
+							"line_linked": {
+								"enable": true,
+								"distance": 100,
+								"color": "#b4befe",
+								"opacity": 0.4,
+								"width": 1.0
+							},
+							"move": {
+								"enable": true,
+								"speed": 2.5,
+								"direction": "none",
+								"random": true,
+								"straight": false,
+								"out_mode": "bounce",
+								"bounce": true,
+								"attract": {
+									"enable": true,
+									"rotateX": 1000,
+									"rotateY": 1000
+								}
+							}
+						},
+						"interactivity": {
+							"detect_on": "canvas",
+							"events": {
+								"onhover": {
+									"enable": true,
+									"mode": ["grab", "bubble"]
+								},
+								"onclick": {
+									"enable": true,
+									"mode": "repulse"
+								},
+								"resize": true
+							},
+							"modes": {
+								"grab": {
+									"distance": 180,
+									"line_linked": {
+										"opacity": 0.9
+									}
+								},
+								"bubble": {
+									"distance": 250,
+									"size": 16,
+									"duration": 1.5,
+									"opacity": 1,
+									"speed": 4
+								},
+								"repulse": {
+									"distance": 180,
+									"duration": 0.8
+								},
+								"push": {
+									"particles_nb": 8
+								},
+								"remove": {
+									"particles_nb": 4
+								}
+							}
+						},
+						"retina_detect": true
+					});
+					console.log('particles.js initialized');
+				}, 100);
+			} else {
+				console.error('particlesJS is not defined');
+			}
+		});
+	</script>
+
 	{% block scripts %}
 	{% endblock %}
 
@@ -70,4 +207,5 @@
 	{{ Configs.theme_footer }}
 
 </body>
+
 </html>

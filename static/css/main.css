@@ -3950,10 +3950,12 @@ input[type="submit"].btn-block {
 
 .custom-control-input:focus~.custom-control-label:before {
   box-shadow: 0 0 0 0.2rem #11111B;
+  color: #B4BEFE;
 }
 
 .custom-control-input:focus:not(:checked)~.custom-control-label:before {
   border-color: #8826F9;
+  color: #B4BEFE;
 }
 
 .custom-control-input:not(:disabled):active~.custom-control-label:before {
@@ -5384,7 +5386,8 @@ a.badge-dark:focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #00000F border-radius: 0.3rem;
+  background-color: transparent;
+  border-radius: 0.3rem;
 }
 
 @media (min-width: 576px) {

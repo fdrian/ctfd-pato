@@ -199,45 +199,53 @@
 		});
 	</script>
 
-	<!-- Modal fix script -->
-	<script>
-		// Ensure modals work correctly with particles background
-		$(document).ready(function() {
-			// Fix for modal backdrop click issues
-			$(document).on('click', '.modal-backdrop', function(e) {
-				var modal = $('.modal.show');
-				if (modal.length) {
-					modal.modal('hide');
-				}
-			});
-
-			// Ensure modal events are properly bound
-			$(document).on('show.bs.modal', '.modal', function() {
-				$('body').addClass('modal-open');
-				console.log('Modal opening...');
-			});
-
-			$(document).on('hide.bs.modal', '.modal', function() {
-				$('body').removeClass('modal-open');
-				console.log('Modal closing...');
-			});
-
-			// Fix for challenge modal specifically
-			$(document).on('click', '.challenge-button', function(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				var challengeId = $(this).data('challenge-id');
-				if (typeof loadChal === 'function') {
-					loadChal(challengeId);
-				}
-			});
-		});
-	</script>
-
 	{% block scripts %}
 	{% endblock %}
 
 	{{ Plugins.scripts }}
+
+	<!-- Modal fix script - loaded after jQuery -->
+	<script>
+		// Wait for jQuery to be available
+		(function checkJQuery() {
+			if (typeof $ !== 'undefined') {
+				// jQuery is loaded, initialize modal fixes
+				$(document).ready(function() {
+					// Fix for modal backdrop click issues
+					$(document).on('click', '.modal-backdrop', function(e) {
+						var modal = $('.modal.show');
+						if (modal.length) {
+							modal.modal('hide');
+						}
+					});
+
+					// Ensure modal events are properly bound
+					$(document).on('show.bs.modal', '.modal', function() {
+						$('body').addClass('modal-open');
+						console.log('Modal opening...');
+					});
+
+					$(document).on('hide.bs.modal', '.modal', function() {
+						$('body').removeClass('modal-open');
+						console.log('Modal closing...');
+					});
+
+					// Fix for challenge modal specifically
+					$(document).on('click', '.challenge-button', function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						var challengeId = $(this).data('challenge-id');
+						if (typeof loadChal === 'function') {
+							loadChal(challengeId);
+						}
+					});
+				});
+			} else {
+				// jQuery not loaded yet, try again in 50ms
+				setTimeout(checkJQuery, 50);
+			}
+		})();
+	</script>
 
 	{{ Configs.theme_footer }}
 

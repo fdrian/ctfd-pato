@@ -1,0 +1,192 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 130deg;
+  inherits: false;
+}
+
+:root {
+  --card-height: 12vh;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+.chal-desc {
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 14px;
+}
+
+.chal-desc img {
+  max-width: 100%;
+  height: auto;
+}
+
+.modal-content {
+  border-radius: 0;
+  max-width: 1000px;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.badge-info,
+.btn-info {
+  background-color: #E3CF36;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  min-height: 50px;
+  font-family: Alata, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+}
+
+.challenge-button {
+  font-family: Poppins, sans-serif;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 1rem;
+  position: relative;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: rgba(250, 250, 250, 0.4);
+  margin: 2rem;
+  border: 1px solid #181825;
+}
+
+
+
+.challenge-button:hover:before,
+.challenge-button:hover:after {
+  animation: none;
+  opacity: 0;
+}
+
+.solved-challenge {
+  color: #B4BEFE;
+  background-color: #8826F9;
+  border: 1px solid #B4BEFE;
+}
+
+.challenge-button:hover {
+  color: #B4BEFE;
+  background-image:
+    radial-gradient(circle at 50% 180%, #8826f9 #8839ef 67%),
+    linear-gradient(#8826f9 #8839ef);
+  transition: box-shadow .375s, transform .375s cubic-bezier(.175, .885, .32, 1.275);
+  border: 1px solid #8826f9;
+  box-shadow: inset 0 -8px 32px #8826f9 inset 0 0 12px #ffffff14, 0 53px 15px #00f2ff03, 0 34px 14px #00f2ff0f, 0 19px 11px #00f2ff33, 0 8px 8px #00f2ff57, 0 2px 5px #00f2ff63;
+}
+
+.solved-challenge:hover {
+  color: #B4BEFE;
+  /* Mantém a cor do texto de acordo com o esquema */
+  background-image: radial-gradient(circle at 50% 180%, #8826F9, #11111B 67%),
+    linear-gradient(#8826F9, #B4BEFE);
+  transition: box-shadow .375s, transform .375s cubic-bezier(.175, .885, .32, 1.275);
+  border: 1px solid #8826F9;
+}
+
+
+.corner-button-check {
+  margin-top: -10px;
+  margin-right: 25px;
+  position: absolute;
+  right: 0;
+}
+
+.key-submit .btn {
+  height: 51px;
+  color: #B4BEFE;
+  background-color: #0EDCE6;
+  border-color: #0EDCE6;
+  box-shadow: 2px 2px #B4BEFE;
+}
+
+.challenge-button::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  position: absolute;
+  background-image: linear-gradient(var(--rotate),
+      #1e1e2e,
+      #181825 50%,
+      #11111b);
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+.challenge-button::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  transform: scale(0.98);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(var(--rotate),
+      #1e1e2e,
+      #181825 50%,
+      #11111b);
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+.solved-challenge::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  position: absolute;
+  background-image: linear-gradient(var(--rotate),
+      #8839ef,
+      #8826F9 50%);
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+.solved-challenge::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  transform: scale(0.98);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(var(--rotate),
+      #8826F9,
+      #8839ef 50%);
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+
+  100% {
+    --rotate: 360deg;
+  }
+}

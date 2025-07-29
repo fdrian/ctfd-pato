@@ -1,0 +1,280 @@
+/* CTFd Pato Theme Variables */
+:root {
+  --bg-primary: #0b0b15;
+  --bg-secondary: #11111b;
+  --text-primary: #cdd6f4;
+  --border-color: #585b70;
+  --hover-bg: #1e1e2e;
+  --primary-color: #8827f9;
+  --primary-hover: #6c2bd9;
+  --primary-light: rgba(136, 39, 249, 0.2);
+  --success-color: #40a02b;
+  --danger-color: #d20f39;
+}
+
+.jumbotron {
+  background-color: transparent;
+  color: #fff;
+}
+
+select.form-control {
+  height: 4rem !important;
+}
+
+.card {
+  border-radius: 0 !important;
+}
+
+#score-graph {
+  min-height: 400px;
+  display: block;
+  clear: both;
+}
+
+#solves-graph {
+  display: block;
+  height: 350px;
+}
+
+#categories-pie-graph,
+#keys-pie-graph {
+  min-height: 400px;
+  display: block;
+}
+
+.form-control {
+  font-family: Alata, sans-serif;
+  position: relative;
+  display: block;
+  padding: 0.8em !important;
+  border-radius: 4px;
+  background-color: #00000F;
+  border: 0 solid #181820;
+  color: #8826f9;
+  font-weight: 400;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 64px;
+}
+
+.challenge-desc {
+  overflow-wrap: anywhere;
+}
+
+.challenge-desc img {
+  max-width: 100%;
+}
+
+/* Particles.js Background */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: var(--bg-primary);
+  pointer-events: none;
+}
+
+/* Ensure content is above particles */
+.navbar,
+main,
+footer,
+.modal {
+  position: relative;
+  z-index: 1;
+}
+
+/* Additional z-index adjustments for important elements */
+.modal-backdrop {
+  z-index: 1040;
+}
+
+.modal {
+  z-index: 1050;
+}
+
+.navbar {
+  z-index: 1030;
+}
+
+/* Ensure dropdowns and tooltips appear above particles */
+.dropdown-menu {
+  z-index: 1000;
+}
+
+.tooltip {
+  z-index: 1070;
+}
+
+.popover {
+  z-index: 1060;
+}
+
+/* Enhanced Modal Styles for CTFd */
+.modal-content {
+  background-color: var(--bg-secondary) !important;
+  border: 2px solid var(--primary-color) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(136, 39, 249, 0.3) !important;
+  backdrop-filter: blur(10px);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover)) !important;
+  color: white !important;
+  border-bottom: none !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.modal-title {
+  color: white !important;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 2rem !important;
+  color: var(--text-primary) !important;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--border-color) !important;
+  background-color: var(--hover-bg) !important;
+  border-radius: 0 0 10px 10px !important;
+}
+
+.modal-backdrop {
+  background-color: rgba(11, 11, 21, 0.8) !important;
+}
+
+/* Modal animation enhancements */
+.modal.fade .modal-dialog {
+  transform: scale(0.8) rotate(-2deg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1) rotate(0deg);
+}
+
+/* Flag input styling in modals */
+.modal .form-control {
+  background-color: var(--bg-primary) !important;
+  border: 2px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  transition: all 0.3s ease !important;
+}
+
+.modal .form-control:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.2rem var(--primary-light) !important;
+  background-color: var(--hover-bg) !important;
+}
+
+/* Close button styling */
+.modal .close {
+  color: white !important;
+  opacity: 0.8 !important;
+  font-size: 1.5rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.modal .close:hover {
+  opacity: 1 !important;
+  transform: scale(1.1) !important;
+}
+
+/* Challenge submission button enhancements */
+.challenge-button,
+.btn-submit-flag {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+}
+
+.challenge-button:hover,
+.btn-submit-flag:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(136, 39, 249, 0.4) !important;
+}
+
+/* Select and Option Elements Fix */
+select.form-control,
+.custom-select {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+select.form-control:focus,
+.custom-select:focus {
+  background-color: var(--hover-bg) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.2rem var(--primary-light) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Option elements styling */
+select option,
+.custom-select option {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  padding: 8px 12px !important;
+}
+
+/* Selected option */
+select option:checked,
+.custom-select option:checked {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* Hover state for options */
+select option:hover,
+.custom-select option:hover {
+  background-color: var(--hover-bg) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Disabled options */
+select option:disabled,
+.custom-select option:disabled {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-secondary) !important;
+  opacity: 0.6;
+}
+
+/* Firefox specific option styling */
+@-moz-document url-prefix() {
+  select option {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  select option:checked {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+  }
+}
+
+/* Multiple select styling */
+select[multiple] {
+  background-color: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  padding: 8px !important;
+}
+
+select[multiple] option {
+  padding: 6px 10px !important;
+  margin: 2px 0 !important;
+  border-radius: 4px !important;
+}
+
+select[multiple] option:selected {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}

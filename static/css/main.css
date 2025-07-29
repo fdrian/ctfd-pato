@@ -4455,7 +4455,6 @@ input[type="submit"].btn-block {
 
 .tab-content>.tab-pane {
   display: none;
-  background-color: #00000F;
 }
 
 .tab-content>.active {

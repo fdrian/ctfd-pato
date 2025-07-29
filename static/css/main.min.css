@@ -3950,10 +3950,12 @@ input[type="submit"].btn-block {
 
 .custom-control-input:focus~.custom-control-label:before {
   box-shadow: 0 0 0 0.2rem #11111B;
+  color: #B4BEFE;
 }
 
 .custom-control-input:focus:not(:checked)~.custom-control-label:before {
   border-color: #8826F9;
+  color: #B4BEFE;
 }
 
 .custom-control-input:not(:disabled):active~.custom-control-label:before {
@@ -4453,7 +4455,6 @@ input[type="submit"].btn-block {
 
 .tab-content>.tab-pane {
   display: none;
-  background-color: #00000F;
 }
 
 .tab-content>.active {

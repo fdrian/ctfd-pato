@@ -88,11 +88,11 @@ footer,
 
 /* Additional z-index adjustments for important elements */
 .modal-backdrop {
-  z-index: 1040;
+  z-index: 1040 !important;
 }
 
 .modal {
-  z-index: 1050;
+  z-index: 1050 !important;
 }
 
 .navbar {
@@ -146,6 +146,33 @@ footer,
 
 .modal-backdrop {
   background-color: rgba(11, 11, 21, 0.8) !important;
+  z-index: 1040 !important;
+}
+
+/* Fix modal interactivity issues */
+.modal.show {
+  display: block !important;
+  z-index: 1050 !important;
+}
+
+.modal-dialog {
+  z-index: 1051 !important;
+  position: relative;
+}
+
+.modal-content {
+  z-index: 1052 !important;
+  position: relative;
+}
+
+/* Prevent body interaction when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+body.modal-open .modal-backdrop {
+  background-color: rgba(11, 11, 21, 0.8) !important;
+  z-index: 1040 !important;
 }
 
 /* Modal animation enhancements */

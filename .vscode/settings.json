@@ -1,0 +1,20 @@
+{
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"editor.detectIndentation": false,
+	"editor.formatOnSave": false,
+	"editor.formatOnPaste": false,
+	"editor.formatOnType": false,
+	"[html]": {
+		"editor.insertSpaces": false,
+		"editor.tabSize": 4
+	},
+	"[css]": {
+		"editor.insertSpaces": false,
+		"editor.tabSize": 4
+	},
+	"[javascript]": {
+		"editor.insertSpaces": false,
+		"editor.tabSize": 4
+	}
+}

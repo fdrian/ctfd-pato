@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modal Test - CTFd Theme</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="static/css/fonts.css">
+	<link rel="stylesheet" href="static/css/main.css">
+	<link rel="stylesheet" href="static/css/core.css">
+	<!-- Bootstrap CSS for testing -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div id="particles"></div>
+	
+	<div class="container mt-5">
+		<h1>Modal Test</h1>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#testModal">
+			Open Test Modal
+		</button>
+		
+		<button type="button" class="btn btn-success" onclick="openChallengeModal()">
+			Open Challenge Modal
+		</button>
+	</div>
+
+	<!-- Test Modal -->
+	<div class="modal fade" id="testModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Test Modal</h5>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>This is a test modal to check if modals work correctly.</p>
+					<p>You should be able to:</p>
+					<ul>
+						<li>Click on this modal content</li>
+						<li>Close it by clicking the X button</li>
+						<li>Close it by clicking outside the modal</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Test Button</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Challenge Modal (similar to CTFd structure) -->
+	<div class="modal fade" id="challengeModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link active" href="#challenge">Challenge</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#solves">Solves</a>
+						</li>
+					</ul>
+					<div role="tabpanel">
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane fade show active" id="challenge">
+								<h2 class='challenge-name text-center pt-3'>Test Challenge</h2>
+								<h3 class="challenge-value text-center">100</h3>
+								<div class="challenge-tags text-center">
+									<span class='badge badge-info challenge-tag'>test</span>
+								</div>
+								<span class="challenge-desc">This is a test challenge description.</span>
+								<div class="row">
+									<div class="col-md-12 form-group">
+										<input id="challenge-input" class="form-control" type="text" name="answer" placeholder="Flag"/>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<button id="challenge-submit" class="btn btn-primary" type="submit">Submit</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="static/js/particles.js"></script>
+	
+	<script>
+		// Initialize particles
+		window.addEventListener('load', function () {
+			console.log('Window loaded, initializing particles...');
+
+			if (typeof particlesJS !== 'undefined') {
+				console.log('particlesJS is available');
+				setTimeout(function () {
+					particlesJS("particles", {
+						"particles": {
+							"number": {
+								"value": 80,
+								"density": {
+									"enable": true,
+									"value_area": 1200
+								}
+							},
+							"color": {
+								"value": ["#8a4ff9", "#9d5afa", "#6b3cd4", "#b470fb", "#7c3ff5", "#a055ff"]
+							},
+							"shape": {
+								"type": ["circle", "triangle", "edge"],
+								"stroke": {
+									"width": 1.0,
+									"color": "#8a4ff9"
+								},
+								"polygon": {
+									"nb_sides": 3
+								}
+							},
+							"opacity": {
+								"value": 0.8,
+								"random": true,
+								"anim": {
+									"enable": true,
+									"speed": 1.5,
+									"opacity_min": 0.05,
+									"sync": false
+								}
+							},
+							"size": {
+								"value": 3,
+								"random": true,
+								"anim": {
+									"enable": true,
+									"speed": 2.5,
+									"size_min": 0.2,
+									"sync": false
+								}
+							},
+							"line_linked": {
+								"enable": true,
+								"distance": 100,
+								"color": "#b4befe",
+								"opacity": 0.4,
+								"width": 1.0
+							},
+							"move": {
+								"enable": true,
+								"speed": 2.5,
+								"direction": "none",
+								"random": true,
+								"straight": false,
+								"out_mode": "bounce",
+								"bounce": true,
+								"attract": {
+									"enable": true,
+									"rotateX": 1000,
+									"rotateY": 1000
+								}
+							}
+						},
+						"interactivity": {
+							"detect_on": "canvas",
+							"events": {
+								"onhover": {
+									"enable": true,
+									"mode": ["grab", "bubble"]
+								},
+								"onclick": {
+									"enable": true,
+									"mode": "repulse"
+								},
+								"resize": true
+							},
+							"modes": {
+								"grab": {
+									"distance": 180,
+									"line_linked": {
+										"opacity": 0.9
+									}
+								},
+								"bubble": {
+									"distance": 250,
+									"size": 16,
+									"duration": 1.5,
+									"opacity": 1,
+									"speed": 4
+								},
+								"repulse": {
+									"distance": 180,
+									"duration": 0.8
+								},
+								"push": {
+									"particles_nb": 8
+								},
+								"remove": {
+									"particles_nb": 4
+								}
+							}
+						},
+						"retina_detect": true
+					});
+					console.log('particles.js initialized');
+				}, 100);
+			} else {
+				console.error('particlesJS is not defined');
+			}
+		});
+
+		// Function to open challenge modal
+		function openChallengeModal() {
+			$('#challengeModal').modal('show');
+		}
+
+		// Modal debugging
+		$(document).ready(function() {
+			console.log('Document ready');
+			
+			// Test modal events
+			$('#testModal, #challengeModal').on('show.bs.modal', function() {
+				console.log('Modal showing:', this.id);
+			});
+			
+			$('#testModal, #challengeModal').on('shown.bs.modal', function() {
+				console.log('Modal shown:', this.id);
+			});
+			
+			$('#testModal, #challengeModal').on('hide.bs.modal', function() {
+				console.log('Modal hiding:', this.id);
+			});
+			
+			$('#testModal, #challengeModal').on('hidden.bs.modal', function() {
+				console.log('Modal hidden:', this.id);
+			});
+
+			// Test challenge submit
+			$('#challenge-submit').click(function(e) {
+				e.preventDefault();
+				console.log('Challenge submit clicked');
+				alert('Flag: ' + $('#challenge-input').val());
+			});
+		});
+	</script>
+</body>
+</html>

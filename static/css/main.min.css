@@ -12288,4 +12288,3 @@ select[multiple] option {
 select[multiple] option:selected {
   background-color: var(--primary-color) !important;
   color: white !important;
-}
